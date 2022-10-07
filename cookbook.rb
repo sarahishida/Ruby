@@ -1,11 +1,17 @@
+INSERIR_RECEITAS = 1
+IMPRIMIR_RECEITAS = 2
+BUSCAR_RECEITAS = 3
+SAIR = 4
+
 def bem_vindo
     puts "Bem-vindo ao CookBook, sua rede social de receitas"
 end
 
 def menu
-    puts "[1] Cadastrar uma receita"
-    puts "[2] Ver todas as receitas"
-    puts "[3] Sair"
+    puts "[#{INSERIR_RECEITAS}] Cadastrar uma receita"
+    puts "[#{IMPRIMIR_RECEITAS}] Ver todas as receitas"
+    puts "[#{BUSCAR_RECEITAS}] Buscar receitas"
+    puts "[#{SAIR}] Sair"
 
     print "Escolha uma opção: "
     return gets.to_i()
@@ -26,8 +32,11 @@ def imprimir_receitas(rec)
     puts "======Receitas cadastradas======"
     rec.each do |receita|
     puts "#{receita[:nome]} - #{receita[:tipo]}"
+    end
     puts
-
+    if rec.empty?
+        puts "Nenhuma receita cadastrada"
+    end
 end
 
 bem_vindo()
@@ -36,19 +45,19 @@ receitas = []
 
 opcao = menu()
 
-
-while(opcao != 3) do 
-    
-    if (opcao == 1)
-        receitas << inserir_receita()
-    elsif(opcao == 2)
-        imprimir_receitas(receitas)   
+loop do
+    if(opcao == INSERIR_RECEITAS)
+       receitas << inserir_receita()
+    elsif(opcao == IMPRIMIR_RECEITAS)
+        imprimir_receitas(receitas) 
+    elsif(opcao == SAIR)
+        break      
     else 
         puts "Opção inválida"
     end  
-        #clausula de saida
-        opcao = menu()
+    
+    opcao = menu()
+end
 
-    end
-
+puts
 puts "Obrigado por usar o Cookbook. Até logo!"

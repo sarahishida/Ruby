@@ -1,6 +1,6 @@
 puts "Bem-vindo ao CookBook, sua rede social de receitas"
 
-receitas []
+receitas = []
 
 puts "[1] Cadastrar uma receita"
 puts "[2] Ver todas as receitas"
@@ -15,14 +15,18 @@ while(opcao != 3) do
     if (opcao == 1)
         puts "Digite o nome da receita: "
         nome = gets.chomp()
-        receitas >> nome
+        #receitas << nome
+        puts "Digite o tipo da receita: "
+        tipo = gets.chomp()
+        receitas << {nome: nome, tipo: tipo}
         puts
         puts "Receita #{nome} cadastrada com sucesso!"
-    elsif(opcao == 2)
         puts
+    elsif(opcao == 2)
         puts "======Receitas cadastradas======"
         #aqui faz a mesma coisa que o for e o each
-        puts receitas
+        receitas.each do |receita|
+        puts "#{receita[:nome]} - #{receita[:tipo]}"
         # aqui é um for em ruby
         #for receita in receitas do
         #    puts receita

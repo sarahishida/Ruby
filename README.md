@@ -1,6 +1,6 @@
 # Aprendendo Ruby
 
-**Campus Code** *(Prof João Almeida)*:clap:
+**Campus Code** 
 
 1. I/O
 2. Variáveis

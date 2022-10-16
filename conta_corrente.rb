@@ -1,6 +1,6 @@
 require_relative 'conta'
 
-class ContaCorrente < Conta
+class ContaCorrente < Conta #heranca
     attr_accessor :limite
     
 def initialize (numero, titular, saldo, limite)

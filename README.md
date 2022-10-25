@@ -1,6 +1,6 @@
 # Aprendendo Ruby
 
-**Campus Code** 
+**Campus Code e One Bit Code** 
 
 Lógica de programação
 
